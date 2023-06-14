@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Medical Record</title>
+  <link rel="stylesheet" th:href="@{show.css}" />
+</head>
+<header th:replace="header.html"></header>
+<body>
+<h1>Medical Record</h1>
+
+<table>
+  <tr>
+
+    <th>Patient Name</th>
+    <th>Doctor Name</th>
+    <th>Medical Tests</th>
+    <th>Medical Procedures</th>
+    <th>Current Medication</th>
+    <!--<th>Appointments</th>-->
+  </tr>
+  <tr th:each="record : ${medicalRecords}">
+
+    <td th:text="${record.patient}"></td>
+    <td th:text="${record.doctor}"></td>
+    <td th:text="${record.medicalTests}"></td>
+    <td th:text="${record.medicalProcedures}"></td>
+    <td th:text="${record.currentMedication}"></td>
+    <!--<td>
+      <ul>
+        <li th:each="appointment : ${record.appointments}" th:text="${appointment.dateTime} + ' with ' + ${appointment.doctor.name}"></li>//is not in the table medical record
+      </ul>
+    </td>-->
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* Body style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #B0DAFF;
+    margin: 0;
+    padding: 0;
+    }
+    
+    /* Main title style */
+    h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 3rem 0;
+    color: #917FB3;
+    }
+    
+    /* Form style */
+    form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #E5BEEC;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    }
+    
+    /* Label style */
+    label {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #3d3d3d;
+    }
+    
+    /* Text field style */
+    input[type="text"], select {
+    font-size: 1.2rem;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+    color: #3d3d3d;
+    background-color: #FDE2F3;
+    }
+    
+    /* Submit button style */
+    input[type="submit"] {
+    background-color: #917FB3;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    }
+    
+    /* Submit button hover style */
+    input[type="submit"]:hover {
+    background-color: #E5BEEC;
+    }
+    
+    /* Error message style */
+    .error-message {
+    color: #d8000c;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #E5BEEC;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        margin-top: 150;
+
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #917FB3, #E5BEEC, #FDE2F3);
+        margin: 0;
+        padding: 0;
+      }

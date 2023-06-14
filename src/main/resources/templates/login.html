@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" >
+  <title>Document</title>
+
+  <link rel="stylesheet" th:href="@{form.css}" />
+  <style>
+    .container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-container {
+  flex: 1;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #999;
+  font-size: 14px;
+}
+body {
+  background: linear-gradient(#F9D949, #F5A623);
+}
+form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #E5BEEC;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        margin-top: 150;
+        margin-top: 150PX;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div class="form-container">
+    <form id="form" th:action="@{/verify_user}" method="post" >
+      <label for="email">firstName:</label>
+      <input type="text" id="email" name="email" class="text" th:value="${email}"><br><br>
+      <label for="password">LastName:</label>
+      <input type="text" id="password" name="password" class="text" th:value="${password}"><br><br>
+      <input type="submit" value="Submit" id="submitBtn">
+    </form>
+  </div>
+  <div class="image-container">
+    <img src="Hospital building-rafiki.png" alt="">
+    <a href="https://storyset.com/medical">Medical illustrations by Storyset</a>
+  </div>
+</div>
+</body>
+</html>

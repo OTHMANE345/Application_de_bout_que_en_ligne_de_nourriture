@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" >
+    <title>Document</title>
+
+    <link rel="stylesheet" th:href="@{form.css}" />
+</head>
+<header th:replace="header.html"></header>
+<body>
+<!--<header>
+    <a th:href="@{/l}" class="logo">FOOD <span id="g">Shop</span>.</a>
+
+    <ul>
+        <li><a th:href="@{/l}">Home</a></li>
+        <li><a  th:href="@{/p}">add Product</a></li>
+        <li><a th:href="@{/k}">Show Product</a></li>
+        <li><a th:href="@{/Cart}">Cart</a></li>
+    </ul>
+</header>-->
+<p></p>
+
+
+<div class="contaier">
+
+    <div> <form id="form" th:object="${doctor}" th:action="@{/store_d}" method="post" >
+        <input type="hidden" th:field="*{id}" />
+        <label for="firstName">firstName:</label>
+        <input type="text" id="firstName" name="firstName" class="text" th:value="${doctor.firstName}"><br><br>
+        <label for="LastName">LastName:</label>
+        <input type="text" id="LastName" name="LastName" class="text" th:value="${doctor.LastName}"><br><br>
+        <label for="specialization">specialization:</label>
+        <input type="text" id="specialization" name="specialization" class="text" th:value="${doctor.specialization}"><br><br>
+        <label for="phoneNumber">phoneNumber:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" class="text" th:value="${doctor.phoneNumber}"><br><br>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" class="text" th:value="${doctor.email}"><br><br>
+
+
+
+
+
+        <input type="submit" value="Submit" id="submitBtn">
+    </form> </div>
+</div>
+
+</body>
+</html>

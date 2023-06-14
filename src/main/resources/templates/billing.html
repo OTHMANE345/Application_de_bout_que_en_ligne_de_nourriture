@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Billing Information</title>
+  <link rel="stylesheet" th:href="@{form.css}" />
+<!--  <script !src="">
+    <script>
+  // Render the PayPal button
+  paypal.Buttons({
+    // Set up the transaction
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: document.getElementById("totalAmountDue").value
+          }
+        }]
+      });
+    },
+    // Finalize the transaction
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        // Call your server to save the payment
+        return fetch('/addBilling', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            patient: document.getElementById("patient").value,
+            appointment: document.getElementById("appointment1").value,
+            totalAmountDue: document.getElementById("totalAmountDue").value,
+            paymentStatus: 'PAID'
+          })
+        });
+      });
+    }
+  }).render('#paypal-button-container');
+</script>-->
+
+  </script>
+</head>
+<header th:replace="header.html"></header>
+<body>
+<h1>Add Billing Information</h1>
+<form method="post" action="/addBilling" >
+  <label for="patient">Patient:</label>
+  <select id="patient" name="patient">
+    <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.firstName + ' ' + patient.lastName}"></option>
+  </select>
+  <br><br>
+  <label for="appointment1">Appointment 1:</label>
+  <select id="appointment1" name="appointment">
+    <option th:each="appointment : ${appointments}" th:value="${appointment.id}" th:text="${appointment.appointmentDateTime + ' with ' + appointment.doctor}"></option>
+  </select>
+  <br><br>
+  <!--<label for="appointment2">Appointment 2:</label>
+  <select id="appointment2" name="appointment2">
+    <option th:each="appointment : ${appointments}" th:value="${appointment.id}" th:text="${appointment.dateTime + ' with ' + appointment.doctor.name}"></option>
+  </select>
+  <br><br>
+  //le nom de la page qui traite paypall in chatgpt is ajouter css pour forum -->
+  <label for="totalAmountDue">Total Amount Due:</label>
+  <input type="text" id="totalAmountDue" name="totalAmountDue">
+  <br><br>
+  <label for="paymentStatus">Payment Status:</label>
+  <input type="text" id="paymentStatus" name="paymentStatus">
+  <br><br>
+  <input type="submit" value="Add Billing">
+</form>
+</body>
+</html>

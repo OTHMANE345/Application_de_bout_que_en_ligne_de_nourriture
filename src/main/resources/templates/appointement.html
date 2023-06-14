@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Appointment</title>
+  <link rel="stylesheet" th:href="@{form.css}" />
+</head>
+<header th:replace="header.html"></header>
+<body>
+<h2>New Appointment</h2>
+<form th:action="@{/saveAppointment}" th:object="${appointment}" method="post">
+  <label for="doctor">Doctor:</label>
+  <select id="doctor" name="doctor">
+    <option th:each="doctor : ${doctors}" th:value="${doctor.id}" th:text="${doctor.firstName + ' ' + doctor.lastName}"></option>
+  </select>
+  <br><br>
+  <label for="patient">Patient:</label>
+  <select id="patient" name="patient">
+    <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.firstName + ' ' + patient.lastName}"></option>
+  </select>
+  <br><br>
+  <label for="date">appointmentDateTime:</label>
+  <input type="text" id="date" name="appointmentDateTime">
+  <br><br>
+  <label for="time">reasonForAppointment:</label>
+  <input type="text" id="time" name="reasonForAppointment">
+  <br><br>
+  <br><br>
+  <label for="tim">prescription:</label>
+  <input type="text" id="tim" name="prescription">
+  <br><br>
+  <label for="ti">diagnosis:</label>
+  <input type="text" id="ti" name="diagnosis">
+  <br><br>
+  <input type="submit" value="Save">
+  <br><br>
+
+</form>
+</body>
+</html>

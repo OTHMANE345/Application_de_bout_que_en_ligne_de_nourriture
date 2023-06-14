@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<p lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+        header {
+            display: flex;
+            flex-direction: row;
+            background-color: #C7E9B0;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            right: 0%;
+            box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header:hover {
+            box-shadow: 0px 10px 50px 0px F5F3C1;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header a {
+            text-decoration: none;
+            margin-right: 50px;
+            font-weight: 900;
+            color: #F5F3C1;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header a:hover {
+            color: #F6F1E9;
+        }
+
+        .logo {
+            font-weight: 1500;
+            color: #394867;
+            font-size: 22px;
+            margin-left: 100px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo:hover {
+            color: #9BA4B5;
+        }
+
+        /* Media queries for smaller screens */
+        @media only screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            header a {
+                margin: 5px 0;
+            }
+            header a {
+    text-decoration: none;
+    margin-right: 50px;
+    font-weight: 900;
+    color: #F5F3C1;
+    border-radius: 10px;
+    background-color: #FFD700; /* a happy golden yellow color */
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+header a:hover {
+    color: #DDFFBB;
+    background-color: #FFC107; /* a darker shade of the happy color */
+}
+        }
+       p {
+    margin-top: 200px;
+}
+
+    </style>
+  <header>
+    <a th:href="@{/l}" class="logo">Hospital management system <span id="g">Shop</span>.</a>
+
+    <ul>
+      <li><a th:href="@{/allpatients}">allpatients</a></li>
+      <li><a  th:href="@{/Appointement}">Appointement</a></li>
+      <li><a th:href="@{/doctors}">doctors</a></li>
+      <li><a th:href="@{/addMedicalRecord}">addMedicalRecord</a></li>
+      <li><a th:href="@{/ShowMedicalRecord}">ShowMedicalRecord</a></li>
+      <li><a  th:href="@{/showBilling}">showBilling</a></li>
+      <li><a th:href="@{/billing}">billing</a></li>
+      <li><a th:href="@{/addMedicalRecord}">addMedicalRecord</a></li>
+    </ul>
+  </header>
+</head>
+<p></p>
+
+</html>

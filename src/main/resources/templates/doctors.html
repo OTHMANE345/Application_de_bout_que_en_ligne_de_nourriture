@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Directory</title>
+    <link rel="stylesheet" th:href="@{show.css}" />
+</head>
+<header th:replace="header.html"></header>
+<body>
+<h1>Doctor Directory</h1>
+<table>
+    <tr>
+        <th>Specialization</th>
+        <th>Doctor Name</th>
+        <th>Phone Number</th>
+        <th>email</th>
+        <th>delete </th>
+        <th>update</th>
+    </tr>
+    <tbody>
+    <tr th:each="doctor : ${doctors}">
+        <td th:text="${doctor.specialization}"></td>
+        <td th:text="${doctor.firstName} + ' ' + ${doctor.lastName}"></td>
+        <td th:text="${doctor.phoneNumber}"></td>
+        <td th:text="${doctor.email}"></td>
+        <td><form th:action="@{/doctor/delete/{id}(id=${doctor.id})}" method="post">
+            <button type="submit" class="delete-button">Delete</button>
+        </form></td>
+        <td><p> <a th:href="@{/update_doctor/{id}(id=${doctor.id})}">update</a></p></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

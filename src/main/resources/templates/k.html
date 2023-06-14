@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Billing Directory</title>
+    <link rel="stylesheet" th:href="@{show.css}" />
+</head>
+<header th:replace="header.html"></header>
+<body>
+<h1>Billing Directory</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Patient Name</th>
+        <th>Total Amount Due</th>
+        <th>Payment Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="billing : ${BillingList}">
+        <td th:text="${billing.patient.firstName + ' ' + billing.patient.lastName}"></td>
+        <td th:text="${billing.totalAmountDue}"></td>
+        <td th:text="${billing.paymentStatus}"></td>
+        <td>
+            <div class="buttons">
+                <form th:action="@{/billing/delete/{id}(id=${billing.id})}" method="post">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+                <p> <a th:href="@{/updatebilling/{id}(id=${billing.id})}">update</a></p>
+                <!--<form th:action="@{/billing/update/{id}(id=${billing.id})}" method="get">
+                    <button type="submit" class="update-button">Update</button>
+                </form>-->
+                <button onclick="window.print()">Print</button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
